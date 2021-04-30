@@ -1,6 +1,10 @@
 # learn-docker
 
+---
+
 Learning Docker from Udemy Course - [Docker and Kubernetes: The Complete Guide](https://www.udemy.com/course/docker-and-kubernetes-the-complete-guide/) By [Stephen Grider](https://github.com/StephenGrider)
+
+---
 
 ### Here is the link to my Notion notes of the course: [Notes on Notion](https://www.notion.so/c6ce010cf5ff4a1d811281b71c5debfd?v=09abe01c969c48f4b43f6e2c6915d888)
 
