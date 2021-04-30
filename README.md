@@ -7,13 +7,15 @@ Learning Docker from Udemy Course - [Docker and Kubernetes: The Complete Guide](
 ### In this course I will learn:
 
 - Learn Docker from scratch, no previous experience required
+- Deep dive on the inner workings of containers
 - Build your own custom images tailored to your applications
 - Master the Docker CLI to inspect and debug running containers
 - Understand how Docker works behind the scenes, and what a container is
 - Build a CI + CD pipeline from scratch with Github, Travis CI, and AWS
 - Automatically deploy your code when it is pushed to Github!
-- Build a complex multi-container application from scratch and deploy it to AWS
+- Construct a multi-container application utilizing Node, React, Redis, and Postgres and deploy it to AWS
 - Understand the purpose and theory of Kubernetes
+- Set up HTTPS on Kubernetes
 - Deploy a production-ready Kubernetes Cluster to Google Cloud
 
-My Certificate: [WIP]
+### My Certificate: [WIP]
