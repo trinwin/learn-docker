@@ -16,7 +16,7 @@ const pgClient = new Pool({
   host: keys.pgHost,
   database: keys.pgDatabase,
   password: keys.pgPassword,
-  port: keys.port,
+  port: keys.pgPort,
 });
 
 pgClient.on("connect", (client) => {
@@ -32,16 +32,17 @@ const redisClient = redis.createClient({
   port: keys.redisPort,
   retry_strategy: () => 1000,
 });
-
 const redisPublisher = redisClient.duplicate();
 
-// Express Route Handler
+// Express route handlers
+
 app.get("/", (req, res) => {
-  res.send("hi");
+  res.send("Hi");
 });
 
 app.get("/values/all", async (req, res) => {
   const values = await pgClient.query("SELECT * from values");
+
   res.send(values.rows);
 });
 
@@ -49,7 +50,6 @@ app.get("/values/current", async (req, res) => {
   redisClient.hgetall("values", (err, values) => {
     res.send(values);
   });
-  res.send(values.rows);
 });
 
 app.post("/values", async (req, res) => {
@@ -61,7 +61,7 @@ app.post("/values", async (req, res) => {
 
   redisClient.hset("values", index, "Nothing yet!");
   redisPublisher.publish("insert", index);
-  pgClient.query("INSERT into values(number) VALUES($1)", [index]);
+  pgClient.query("INSERT INTO values(number) VALUES($1)", [index]);
 
   res.send({ working: true });
 });
