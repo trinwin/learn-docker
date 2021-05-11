@@ -1,0 +1,42 @@
+apiVersion: skaffold/v2beta12
+kind: Config
+build:
+  local:
+    push: false
+  artifacts:
+    - image: cygnetops/client-skaffold
+      context: client
+      docker:
+        dockerfile: Dockerfile.dev
+      sync:
+        manual:
+          - src: "src/**/*.js"
+            dest: .
+          - src: "src/**/*.css"
+            dest: .
+          - src: "src/**/*.html"
+            dest: .
+    - image: cygnetops/worker-skaffold
+      context: worker
+      docker:
+        dockerfile: Dockerfile.dev
+      sync:
+        manual:
+          - src: "*.js"
+            dest: .
+    - image: cygnetops/server-skaffold
+      context: server
+      docker:
+        dockerfile: Dockerfile.dev
+      sync:
+        manual:
+          - src: "*.js"
+            dest: .
+deploy:
+  kubectl:
+    manifests:
+      - k8s/client-deployment.yaml
+      - k8s/server-deployment.yaml
+      - k8s/worker-deployment.yaml
+      - k8s/server-cluster-ip-service.yaml
+      - k8s/client-cluster-ip-service.yaml
