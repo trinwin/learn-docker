@@ -22,4 +22,6 @@
 - Set up HTTPS on Kubernetes
 - Deploy a production-ready Kubernetes Cluster to Google Cloud
 
-### My Certificate: [WIP]
+### My Certificate:
+
+<img src="certificates/Docker-Kubernetes.jpeg">
